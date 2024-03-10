@@ -4,4 +4,3 @@ from .models import Mesa, Cliente
 
 admin.site.register(Mesa)
 admin.site.register(Cliente)
-#admin.site.register(Estado)

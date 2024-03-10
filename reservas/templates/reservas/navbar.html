@@ -19,9 +19,11 @@
               <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
                 <div class="navbar-nav">
                   <a class="nav-link active" aria-current="page" href="{% url 'reservas:index' %}">Inicio</a>
-                  <a class="nav-link" href="{% url 'reservas:seleccion' %}">Seleccionar mesas</a>
-                  <a class="nav-link" href="{% url 'reservas:modificar' %}">Modificar reservas</a>
-                  <a class="nav-link" href="{% url 'reservas:baja' %}">Dar de baja reservas</a>
+                  <a class="nav-link active" href="{% url 'reservas:seleccion' %}">Seleccionar mesas</a>
+                  <a class="nav-link active" href="{% url 'reservas:modificar' %}">Modificar reservas</a>
+                  <a class="nav-link active" href="{% url 'reservas:baja' %}">Dar de baja reservas</a>
+                  <a class="nav-link active" style="color:red" href="{% url 'logout' %}">Cerrar sesión</a>
+
                 </div>
               </div>
             </div>

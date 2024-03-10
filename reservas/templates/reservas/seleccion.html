@@ -4,6 +4,7 @@
 
 <h1>Seleccionar Mesa</h1>
 
+{% if mesas %}
 <form method="post" action="{% url 'reservas:reservar_mesa' %}">
     {% csrf_token %}
     Número de mesa: 
@@ -20,8 +21,9 @@
     <br/>
     <button class="btn btn-success" type="submit">Enviar</button>
 </form>
-
-
+{% else %}
+    No hay mesas disponibles.
+{% endif%}
 
 
 {% endblock %}

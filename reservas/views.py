@@ -3,19 +3,26 @@ from django.contrib.auth.decorators import login_required
 from .models import Mesa, Cliente
 from django.http import HttpResponseRedirect
 from django.urls import reverse
+from django.contrib.auth import logout
+from django.shortcuts import redirect
 
 # Create your views here.
 @login_required
 def index(request):
     return render(request, "reservas/index.html")
 
+def cerrar_sesion(request):
+    logout(request)
+    return index(request)
 
+@login_required
 def seleccion(request):
     disponibles = mesas_disponibles()
     return render(request, "reservas/seleccion.html", {
         "mesas": disponibles,
     })
 
+@login_required
 def reservar_mesa(request):
     if request.method == "POST":
         id_mesa = int(request.POST.get("mesa"))
@@ -31,18 +38,21 @@ def reservar_mesa(request):
             return HttpResponseRedirect(reverse("index"))
         
 #Cambia la descripción de la mesa.
+@login_required
 def modificar(request):
     mesascliente = mesas_cliente(request.user.cliente.id)
     return render(request, "reservas/modificar.html", {
         "mesas": mesascliente 
     })
 
+@login_required
 def baja(request):
     mesascliente = mesas_cliente(request.user.cliente.id)
     return render(request, "reservas/baja.html", {
         "mesas": mesascliente
     })
 
+@login_required
 def baja_reserva(request):
     if request.method == "POST":
         mesa_id = request.POST.get('mesa_id')
@@ -72,6 +82,7 @@ def mesas_disponibles():
             disponibles.append(mesa)
     return disponibles
 
+@login_required
 def modificar_reserva(request):#esta mal todavia
     if request.method == "POST":
         mesa_id = request.POST.get('mesa_id')
@@ -79,7 +90,8 @@ def modificar_reserva(request):#esta mal todavia
         return render(request, "reservas/modificar_reserva.html", {
         "mesa": mesa
     })
-            
+    
+@login_required
 def modificar_descripcion(request):
     if request.method == "POST":
         mesa_id = request.POST.get('mesa_id')

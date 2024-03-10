@@ -1,7 +1,12 @@
 from django.urls import path
 from . import views
+from django.contrib import admin
 
 app_name = "reservas"
+
+admin.site.site_header = "Administración de Reservas"
+admin.site.site_title = "Reservas del restaurant"
+admin.site.index_title = "Sitio de administración de Reservas"
 
 urlpatterns = [
     path("", views.index, name="index"),

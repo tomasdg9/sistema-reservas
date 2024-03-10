@@ -19,8 +19,7 @@
                 <tr>
                     <td>{{ mesa.id }}</td>
                     <td>{{ mesa.descripcion }}</td>
-                    <input type="hidden" name="mesa_id" value="{{ mesa.id }}">
-                    <td><button type="submit" class="btn btn-danger">Dar de baja reserva</button></td>
+                    <td><button type="submit" name="mesa_id" value="{{mesa.id}}" class="btn btn-danger">Dar de baja reserva</button></td>
                 </tr>
             {% endfor %}
             </tbody>
