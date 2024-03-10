@@ -25,16 +25,21 @@
 </p>
 
 <p>
-    Dentro de la ruta /admin/ con el admin logueado. Se podrá crear nuevos usuarios desde la ruta users. Para crear un nuevo cliente se deberá asociarlo a un usuario registrado del sistema, para que este pueda loguearse y realizar las diferentes operaciones disponibles.
+    Dentro de la ruta /admin/ con el admin logueado. Se podrá crear nuevos 
+    usuarios desde la ruta users. Para crear un nuevo cliente se deberá asociarlo 
+    a un usuario registrado del sistema, para que este pueda loguearse y realizar 
+    las diferentes operaciones disponibles.
     
     El admin será el encargado de crear, modificar y eliminar las mesas para su 
     posterior reserva, Desde la ruta Mesas especificando si la mesa está ocupada 
     o no y asociando esta mesa a un cliente si asi lo desea. Deberá agregar una 
     descripción (EJ: posición de la mesa).
 
-    Dentro de la ruta reservas el cliente podrá realizar altas, bajas y modificaciones sobre sus reservas.
+    Dentro de la ruta reservas el cliente podrá realizar altas, bajas y 
+    modificaciones sobre sus reservas.
 
-    Obs: al desloguear un cliente y volver a ingresar se deberá verificar la url, esta tiene que ser: "/accounts/login/"
+    Obs: al desloguear un cliente y volver a ingresar se deberá verificar la url, 
+    esta tiene que ser: "/accounts/login/"
 </p>
 <h3>Usuarios registrados:</h3>
 <p>
