@@ -1,4 +1,12 @@
 {% extends "reservas/navbar.html" %}
 
 {% block cuerpo %}
+    <script>
+        // Verificar si hay un mensaje de éxito en el contexto de la plantilla
+        var successMessage = "{{ success_message }}";
+        if (successMessage) {
+            alert(successMessage);
+        }
+    </script>
+    <h1>Hola, {{ request.user.cliente.nombre }}</h1>
 {% endblock %}

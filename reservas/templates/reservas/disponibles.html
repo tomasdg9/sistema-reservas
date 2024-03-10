@@ -1,0 +1,5 @@
+{% extends "reservas/navbar.html" %}
+
+{% block cuerpo %}
+<h1>Hola, {{ request.user.cliente.nombre }} disponibles</h1>
+{% endblock %}

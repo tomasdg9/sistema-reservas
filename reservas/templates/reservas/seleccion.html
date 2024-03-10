@@ -1,0 +1,27 @@
+{% extends "reservas/navbar.html" %}
+
+{% block cuerpo %}
+
+<h1>Seleccionar Mesa</h1>
+
+<form method="post" action="{% url 'reservas:reservar_mesa' %}">
+    {% csrf_token %}
+    Número de mesa: 
+    <select name="mesa">
+        {% for mesa in mesas %}
+            <option value="{{ mesa.id }}">{{ mesa.id }}</option>
+        {% endfor %}
+    </select>
+    <br/>
+    <br/>
+    Descripción: 
+    <input type="text" name="descripcion"/>
+    <br/>
+    <br/>
+    <button class="btn btn-success" type="submit">Enviar</button>
+</form>
+
+
+
+
+{% endblock %}

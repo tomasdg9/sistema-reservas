@@ -1,0 +1,33 @@
+{% extends "reservas/navbar.html" %}
+
+{% block cuerpo %}
+    {% if mesas %}
+    <h1>Dar de baja reservas</h1>
+    
+    <form method="post" action="{% url 'reservas:baja_reserva' %}">
+        {% csrf_token %}
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Número de mesa</th>
+                    <th>Descripción</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+            {% for mesa in mesas %}
+                <tr>
+                    <td>{{ mesa.id }}</td>
+                    <td>{{ mesa.descripcion }}</td>
+                    <input type="hidden" name="mesa_id" value="{{ mesa.id }}">
+                    <td><button type="submit" class="btn btn-danger">Dar de baja reserva</button></td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+        
+    </form>
+    {% else %}
+        No se registraron reservas.
+    {% endif%}
+{% endblock %}

@@ -1,0 +1,28 @@
+{% extends "reservas/navbar.html" %}
+
+{% block cuerpo %}
+    <h1>Modificar reserva</h1>
+    
+    <form method="post" action="{% url 'reservas:modificar_descripcion' %}">
+        {% csrf_token %}
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Número de mesa</th>
+                    <th>Descripción</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>{{ mesa.id }}</td>
+                    <td><input name="text" type="text" placeholder="{{ mesa.descripcion }}"/></td>
+                    <input type="hidden" name="mesa_id" value="{{ mesa.id }}">
+                    <td><button class="btn btn-success" type="submit" >Modificar reserva</button></td>
+                </tr>
+            </tbody>
+        </table>
+        
+    </form>
+    
+{% endblock %}
